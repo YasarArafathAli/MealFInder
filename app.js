@@ -23,7 +23,8 @@ function searchMeal(e){
             console.log(data);
             resultHeading.innerHTML = `<h2>Search Results for '${term}'</h2>`;
             if (data.meals == null) {
-                resultHeading.innerHTML = `<h2>No results found for '${term}'</h2>`
+                resultHeading.innerHTML = `<h2>No results found for '${term}'</h2>`;
+                mealsEL.innerHTML = "";     
             }
             else{
                 mealsEL.innerHTML = data.meals.map(meal =>`

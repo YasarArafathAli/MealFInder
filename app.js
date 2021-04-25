@@ -5,6 +5,8 @@ const mealsEL = document.querySelector("#meals");
 const resultHeading = document.querySelector("#result-heading");
 const single_mealEL = document.querySelector("#single-meal");
 
+let innerData = ""
+
 // search meal and fetch API
 function searchMeal(e){
     e.preventDefault();
@@ -84,8 +86,10 @@ function addMealToDom(meal){
             break;
         }
     }
+    hideItems();
     single_mealEL.innerHTML = `
         <div class="single-meal">
+            <button id="eleback" class = "random-btn">back</button>
             <h1>${meal.strMeal}</h1>
             <img src="${meal.strMealThumb}" alt= "${meal.strMeal}" />
             <div class="single-meal-info">
@@ -103,13 +107,30 @@ function addMealToDom(meal){
 
         </div>
     `
+    let backmealBtn = document.getElementById("eleback");
+    backmealBtn.addEventListener("click", () => showItems())
+}
+
+function hideItems() {
+    mealsEL.style.display = "none";
+    resultHeading.style.display = "none";
+    scrollTo(0, 0);
+}
+
+function showItems() {
+    mealsEL.style.display = "grid ";
+    resultHeading.style.display = "block";
+    single_mealEL.innerHTML = "";
 }
 
 // event listeners
 
 submit.addEventListener('submit', searchMeal);
 
-
+function getMealList(e) {
+    var textContent = e.target.value;
+    console.log(textContent);
+  }
 
 mealsEL.addEventListener("click", e => {
     const mealInfo = e.path.find(item => {
@@ -131,3 +152,5 @@ mealsEL.addEventListener("click", e => {
 })
 
 random.addEventListener('click', getRandomMeal);
+search.addEventListener('input', getMealList);
+

@@ -3,6 +3,20 @@
 
 }
 
+
+a, a:visited{
+    text-decoration: none;
+    color:white;
+}
+a:hover{
+    color:#e09850;
+    /* background-color:#e09850; */
+}
+
+button:hover {
+    /* color: #e09850; */
+    background-color:#e09850;
+}
 body{
     background: #2d2013;
     color: #fff;
@@ -94,7 +108,7 @@ input[type = "text"]{
 .single-meal{
     margin: 30px auto;
     width: 90%;
-
+    background: #2d2000
 }
 
 .single-meal img{
